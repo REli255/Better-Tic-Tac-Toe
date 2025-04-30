@@ -127,5 +127,3 @@ def game():
                 print("", board[x][y], end= " |")
             print("")
     print(winner)
-
-game()

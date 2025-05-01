@@ -4,7 +4,7 @@
 from basic_tic_tac_toe import game
 from highscore_managment import *
 
-
+chosen = 0
 
 # function with the main user interface
 def main():
@@ -16,6 +16,8 @@ def main():
     3. End
     Enter the number of the thing you would like to do: """)
     if choice == "1":
+        players = input("do you want to play 1. a two player game against a friend or 2. a one player game against a bot (enter the number next to the option you want): ")
+        
         game()
     elif choice == "2":
         profile_managment()
@@ -23,6 +25,7 @@ def main():
         return "end"
     else:
         print("that is not an option")
+        return main()
 
 # loop that makes sure the program continues until the user is done 
 while True:
@@ -31,3 +34,5 @@ while True:
     if end == "end":
         print("thank you for using this program")
         break
+    else:
+        highscore()

@@ -15,5 +15,3 @@ def set_grid():
     pygame.display.flip()
 
     return screen
-
-set_grid()

@@ -30,7 +30,9 @@ def draw_x(mouse_x,mouse_y,screen):
     elif 600 < mouse_x and 600 < mouse_y:
         pygame.draw.line(screen, (0, 0, 0), (650, 650), (855,855), 30)
         pygame.draw.line(screen, (0, 0, 0), (855, 650), (650,855), 30)
+    pygame.display.flip()
    
+
 
 def draw_o(mouse_x,mouse_y,screen):
     if mouse_x < 300 and mouse_y < 300:
@@ -51,3 +53,4 @@ def draw_o(mouse_x,mouse_y,screen):
        pygame.draw.circle(screen, (0, 0, 0), (450, 750), 120, width=20, draw_top_right=1, draw_top_left=1, draw_bottom_left=1, draw_bottom_right=1)
     elif 600 < mouse_x and 600 < mouse_y:
         pygame.draw.circle(screen, (0, 0, 0), (750, 750), 120, width=20, draw_top_right=1, draw_top_left=1, draw_bottom_left=1, draw_bottom_right=1)
+    pygame.display.flip()

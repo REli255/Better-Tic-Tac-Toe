@@ -9,7 +9,7 @@ chosen = 0
 # function with the main user interface
 def main():
     if chosen == 0:
-        profile_managment()
+        profile_manager()
     
     choice = input("""1. Play Tic-Tac-Toe
     2. Change Profile
@@ -20,7 +20,7 @@ def main():
         
         game()
     elif choice == "2":
-        profile_managment()
+        profile_manager()
     elif choice == "3":
         return "end"
     else:

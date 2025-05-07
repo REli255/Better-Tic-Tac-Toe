@@ -49,7 +49,7 @@ def profile_search():
 
 
 def profile_manager():
-    choice = input()
+    choice = input("do you want to 1. make a new profile or 2. choose an old profile (enter the number next to the option you want): ")
     if choice == "1":
         profile = profile_maker()
     elif choice =="2":

@@ -22,7 +22,13 @@ def highscore():
         top += 1
 
 def profile_maker():
-    pass
+    name = input("enter the username you want: ")
+    with open("highscores.csv", "a", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow(name, 0)
+      
+    profile = [name, 0]
+    return profile
 
 def profile_search():
     profiles = []
@@ -32,12 +38,11 @@ def profile_search():
         for row in reader:
             profiles.append([row[0], row[1]])
     
-    username = input()
+    username = input("enter the username of your profile: ")
     for item in profiles:
-        if item == username:
+        if item[0] == username:
             print("your profile was found")
-            profile = item
-            break
+            return item
         else:
             pass
     print("the username you entered did not match any of the profiles")
@@ -46,9 +51,10 @@ def profile_search():
 def profile_manager():
     choice = input()
     if choice == "1":
-        profile_maker()
+        profile = profile_maker()
     elif choice =="2":
-        profile_search()
+        profile = profile_search()
     else:
         print("that is not an option")
-        profile_manager()
+        profile = profile_manager()
+    return profile

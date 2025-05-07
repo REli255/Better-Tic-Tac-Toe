@@ -9,7 +9,7 @@ chosen = 0
 # function with the main user interface
 def main():
     if chosen == 0:
-        profile_manager()
+        profile = profile_manager()
     
     choice = input("""1. Play Tic-Tac-Toe
     2. Change Profile
@@ -18,9 +18,12 @@ def main():
     if choice == "1":
         players = input("do you want to play 1. a two player game against a friend or 2. a one player game against a bot (enter the number next to the option you want): ")
         
-        game()
+        profile = game(profile)
+        with open("highscores.csv", "a", newline="") as file:
+            writer = csv.writer(file)
+            writer.writerow(profile[0], profile[1])
     elif choice == "2":
-        profile_manager()
+        profile = profile_manager()
     elif choice == "3":
         return "end"
     else:

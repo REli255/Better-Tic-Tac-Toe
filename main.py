@@ -21,7 +21,7 @@ def main():
         profile = game(profile)
         with open("highscores.csv", "a", newline="") as file:
             writer = csv.writer(file)
-            writer.writerow(profile[0], profile[1])
+            writer.writerow(profile)
     elif choice == "2":
         profile = profile_manager()
     elif choice == "3":

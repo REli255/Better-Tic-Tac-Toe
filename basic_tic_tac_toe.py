@@ -43,7 +43,7 @@ def check():
     else:
         return "you tied"
 
-def game():
+def game(profile):
     turns = 0
     winner = check()
     even = [0, 2, 4, 6, 8]
@@ -127,5 +127,6 @@ def game():
                 print("", board[x][y], end= " |")
             print("")
     print(winner)
-
-game()
+    if winner == "you won":
+        profile = [profile[0], int(profile[1]) + 1]
+    return profile

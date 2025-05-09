@@ -2,6 +2,7 @@ import random
 
 from get_mouse import *
 from grid import *
+from place_mark import *
 
 def main():
     print("""
@@ -41,9 +42,7 @@ def set_board():
     board_row2 = [slot4,slot5,slot6]
     board_row3 = [slot7,slot8,slot9]
 
-    board = [board_row1,
-            board_row2,
-            board_row3]
+    board = [board_row1,board_row2,board_row3]
 
     return board, choices
 
@@ -81,6 +80,115 @@ def bot_choice(choices):
     return mouse_x, mouse_y
     
 
+
+def check_win_two(row_1, row_2, row_3):
+    game = True
+    
+    if row_1[0] == "X" and row_1[1] == "X" and row_1[2] == "X":
+        print("Player 1 Won")
+        game == False
+    elif row_2[0] == "X" and row_2[1] == "X" and row_2[2] == "X":
+        print("Player 1 Won")
+        game == False
+    elif row_3[0] == "X" and row_3[1] == "X" and row_3[2] == "X":
+        print("Player 1 Won")
+        game == False
+    elif row_1[0] == "X" and row_2[0] == "X" and row_3[0] == "X":
+        print("Player 1 Won")
+        game == False
+    elif row_1[1] == "X" and row_2[1] == "X" and row_3[1] == "X":
+        print("Player 1 Won")
+        game == False
+    elif row_1[2] == "X" and row_2[2] == "X" and row_3[2] == "X":
+        print("Player 1 Won")
+        game == False
+    elif row_1[0] == "X" and row_2[1] == "X" and row_3[2] == "X":
+        print("Player 1 Won")
+        game == False
+    elif row_1[2] == "X" and row_2[1] == "X" and row_3[0] == "X":
+        print("Player 1 Won")
+        game == False
+    elif row_1[0] == "O" and row_1[1] == "O" and row_1[2] == "O":
+        print("Player 2 Won")
+        game == False
+    elif row_2[0] == "O" and row_2[1] == "O" and row_2[2] == "O":
+        print("Player 2 Won")
+        game == False
+    elif row_3[0] == "O" and row_3[1] == "O" and row_3[2] == "O":
+        print("Player 2 Won")
+        game == False
+    elif row_1[0] == "O" and row_2[0] == "O" and row_3[0] == "O":
+        print("Player 2 Won")
+        game == False
+    elif row_1[1] == "O" and row_2[1] == "O" and row_3[1] == "O":
+        print("Player 2 Won")
+        game == False
+    elif row_1[2] == "O" and row_2[2] == "O" and row_3[2] == "O":
+        print("Player 2 Won")
+        game == False
+    elif row_1[0] == "X" and row_2[1] == "X" and row_3[2] == "X":
+        print("Player 2 Won")
+        game == False
+    elif row_1[2] == "X" and row_2[1] == "X" and row_3[0] == "X":
+        print("Player 2 Won")
+        game == False
+
+    return game
+
+def check_win_single(row_1, row_2, row_3):
+    game = True
+    
+    if row_1[0] == "X" and row_1[1] == "X" and row_1[2] == "X":
+        print("You Won")
+        game == False
+    elif row_2[0] == "X" and row_2[1] == "X" and row_2[2] == "X":
+        print("You Won")
+        game == False
+    elif row_3[0] == "X" and row_3[1] == "X" and row_3[2] == "X":
+        print("You Won")
+        game == False
+    elif row_1[0] == "X" and row_2[0] == "X" and row_3[0] == "X":
+        print("You Won")
+        game == False
+    elif row_1[1] == "X" and row_2[1] == "X" and row_3[1] == "X":
+        print("You Won")
+        game == False
+    elif row_1[2] == "X" and row_2[2] == "X" and row_3[2] == "X":
+        print("You Won")
+        game == False
+    elif row_1[0] == "X" and row_2[1] == "X" and row_3[2] == "X":
+        print("You Won")
+        game == False
+    elif row_1[2] == "X" and row_2[1] == "X" and row_3[0] == "X":
+        print("You Won")
+        game == False
+    elif row_1[0] == "O" and row_1[1] == "O" and row_1[2] == "O":
+        print("The Bot Won")
+        game == False
+    elif row_2[0] == "O" and row_2[1] == "O" and row_2[2] == "O":
+        print("The Bot Won")
+        game == False
+    elif row_3[0] == "O" and row_3[1] == "O" and row_3[2] == "O":
+        print("The Bot Won")
+        game == False
+    elif row_1[0] == "O" and row_2[0] == "O" and row_3[0] == "O":
+        print("The Bot Won")
+        game == False
+    elif row_1[1] == "O" and row_2[1] == "O" and row_3[1] == "O":
+        print("The Bot Won")
+        game == False
+    elif row_1[2] == "O" and row_2[2] == "O" and row_3[2] == "O":
+        print("The Bot Won")
+        game == False
+    elif row_1[0] == "X" and row_2[1] == "X" and row_3[2] == "X":
+        print("The Bot Won")
+        game == False
+    elif row_1[2] == "X" and row_2[1] == "X" and row_3[0] == "X":
+        print("The Bot Won")
+        game == False
+
+    return game
+
 def game_two_play():
     pass
 
@@ -89,17 +197,25 @@ def game_single_play(board):
     game = True
     
     def game_run():
-        for row in board:
-            print(row)
+        print(board[0])
+        print(board[1])
+        print(board[2])
 
-        mouse_x, mouse_y = get_mouse_pos(screen)#Get User's Choice On The Board
+        print("Its Your Turn")
+        mouse_x, mouse_y = get_mouse_pos()#Get User's Choice On The Board
         draw_x(mouse_x, mouse_y, screen)
+        game = check_win_single(board[0], board[1], board[2])
 
+        print("Bot Placed Mark")
         mouse_x, mouse_y = bot_choice()
         draw_o(mouse_x, mouse_y, screen)
+        game = check_win_single()
+
+        return game
 
     while game == True:
-        game_run()
+        game = game_run()
+
 
 
 main()

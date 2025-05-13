@@ -4,6 +4,7 @@ import time
 from get_mouse import *
 from grid import *
 from place_mark import *
+from check_space import *
 
 def tic_two_play():
 
@@ -93,7 +94,8 @@ def tic_two_play():
     
     def game_run(board, choices):
         print("Its Player 1's Turn")
-        mouse_x, mouse_y = get_mouse_pos(choices)#Get User's Choice On The Board
+        mouse_x, mouse_y = get_mouse_pos()#Get User's Choice On The Board
+        mouse_x, mouse_y = check_space(mouse_x, mouse_y, choices)
         board, choices = draw_x(mouse_x, mouse_y, screen, board, choices)
         game = check_win(board[0], board[1], board[2], choices)
         
@@ -103,7 +105,8 @@ def tic_two_play():
 
         time.sleep(0.1)
         print("Its Player 2's Turn")
-        mouse_x, mouse_y = get_mouse_pos(choices)
+        mouse_x, mouse_y = get_mouse_pos()
+        mouse_x, mouse_y = check_space(mouse_x, mouse_y, choices)
         board, choices = draw_o(mouse_x, mouse_y, screen, board, choices)
         game = check_win(board[0], board[1], board[2], choices)
 
@@ -112,5 +115,7 @@ def tic_two_play():
 
     while game == True:
         game = game_run(board, choices)
+
+tic_two_play()
 
     

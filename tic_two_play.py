@@ -115,7 +115,3 @@ def tic_two_play():
 
     while game == True:
         game = game_run(board, choices)
-
-tic_two_play()
-
-    

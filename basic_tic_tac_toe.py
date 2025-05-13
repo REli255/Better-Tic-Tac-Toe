@@ -129,4 +129,5 @@ def game(profile):
     print(winner)
     if winner == "you won":
         profile = [profile[0], int(profile[1]) + 1]
+        print(profile)
     return profile

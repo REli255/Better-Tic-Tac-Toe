@@ -3,7 +3,6 @@
 # statements to import functions
 from basic_tic_tac_toe import game
 from highscore_managment import *
-from tic_tac_toe import *
 
 chosen = 0
 

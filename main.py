@@ -33,23 +33,27 @@ def main(profile):
         
         if players == "2":
             profile = tic_single_play(profile)
+            with open("highscores.csv", "a", newline="") as file:
+                writer = csv.writer(file)
+                writer.writerow(profile)
         elif players == "1":
             print("set a profile for the second player")
             profile_2 = profile_manager()
-            profile = tic_two_play(profile, profile_2)
+            profile, profile_2 = tic_two_play(profile, profile_2)
+            with open("highscores.csv", "a", newline="") as file:
+                writer = csv.writer(file)
+                writer.writerow(profile)
+            with open("highscores.csv", "a", newline="") as file:
+                writer = csv.writer(file)
+                writer.writerow(profile)
         else:
             print("That is not an option")
-            return main()
-        with open("highscores.csv", "a", newline="") as file:
-            writer = csv.writer(file)
-            writer.writerow(profile)
     elif choice == "2":
         profile = profile_manager()
     elif choice == "3":
         return "end", profile
     else:
         print("that is not an option")
-        return main()
     return "", profile
 
 profile = []
@@ -64,5 +68,3 @@ while True:
     else:
         print("HIGHSCORES")
         highscore()
-
-

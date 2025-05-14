@@ -3,6 +3,8 @@
 # statements to import functions
 from basic_tic_tac_toe import game
 from highscore_managment import *
+from tic_single_play import tic_single_play
+from tic_two_play import tic_two_play
 
 chosen = 0
 
@@ -17,8 +19,14 @@ def main():
     Enter the number of the thing you would like to do: """)
     if choice == "1":
         players = input("do you want to play 1. a two player game against a friend or 2. a one player game against a bot (enter the number next to the option you want): ")
-        
-        profile = game(profile)
+        if players == "1":
+            profile = tic_single_play(profile)
+        elif players == "2":
+            profile_2 = profile_manager()
+            profile = tic_two_play(profile, profile_2)
+        else:
+            print("that is not an option")
+            return main()
         with open("highscores.csv", "a", newline="") as file:
             writer = csv.writer(file)
             writer.writerow(profile)

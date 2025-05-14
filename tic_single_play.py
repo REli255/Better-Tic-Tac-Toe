@@ -46,7 +46,7 @@ def bot_choice(choices):
     
 
 
-def check_win_single(row_1, row_2, row_3, choices):
+def check_win_single(row_1, row_2, row_3, choices, profile):
     game = True
     
     if row_1[0] == "X" and row_1[1] == "X" and row_1[2] == "X":
@@ -115,14 +115,14 @@ def check_win_single(row_1, row_2, row_3, choices):
     return game, profile
 
 
-def tic_single_play():
+def tic_single_play(profile):
     screen = set_grid()#Activate PyGame Window
     board, choices = set_board()
     game = True
 
     print(board[1][1])
     
-    def game_run(board, choices):
+    def game_run(board, choices, profile):
         print("Its Your Turn")
         mouse_x, mouse_y = get_mouse_pos()#Get User's Choice On The Board
         mouse_x, mouse_y = check_space(mouse_x, mouse_y, choices)
@@ -146,7 +146,3 @@ def tic_single_play():
         game, profile = game_run(board, choices)
 
     return profile
-
-
-
-tic_single_play()

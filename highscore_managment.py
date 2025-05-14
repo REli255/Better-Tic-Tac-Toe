@@ -29,7 +29,7 @@ def highscore():
                 top += 1
 
 def profile_maker():
-    name = input("enter the username you want: ")
+    name = input("Enter the username you want: ")
     profile = [name, 0]
     with open("highscores.csv", "a", newline="") as file:
         writer = csv.writer(file)
@@ -45,7 +45,7 @@ def profile_search():
             profiles.append([row[0], row[1]])
     
     found = 0
-    username = input("enter the username of your profile: ")
+    username = input("Enter the username of your profile: ")
     for item in profiles:
         if item[0] == username:
             found += 1
@@ -53,18 +53,25 @@ def profile_search():
         else:
             pass
     if found == 0:
-        print("the username you entered did not match any of the profiles")
+        print("The username you entered did not match any of the profiles")
     else:
-        print("profile found")
+        print("Profile Found")
         return item
 
 def profile_manager():
-    choice = input("do you want to 1. make a new profile or 2. choose an old profile (enter the number next to the option you want): ")
+    print("""
+    Profile Choices
+    1. Make a New Profile
+    2. Choose an Old Profile
+    """)
+    
+    choice = input("Choose a Number: ")
+    
     if choice == "1":
         profile = profile_maker()
     elif choice =="2":
         profile = profile_search()
     else:
-        print("that is not an option")
+        print("That is not an option")
         profile = profile_manager()
     return profile

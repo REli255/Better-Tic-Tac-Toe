@@ -30,51 +30,67 @@ def tic_two_play():
         
         if row_1[0] == "X" and row_1[1] == "X" and row_1[2] == "X":
             print("Player 1 Won")
+        profile = [profile[0], int(profile[1]) + 1]
             game = False
         elif row_2[0] == "X" and row_2[1] == "X" and row_2[2] == "X":
             print("Player 1 Won")
+        profile = [profile[0], int(profile[1]) + 1]
             game = False
         elif row_3[0] == "X" and row_3[1] == "X" and row_3[2] == "X":
             print("Player 1 Won")
+        profile = [profile[0], int(profile[1]) + 1]
             game = False
         elif row_1[0] == "X" and row_2[0] == "X" and row_3[0] == "X":
             print("Player 1 Won")
+        profile = [profile[0], int(profile[1]) + 1]
             game = False
         elif row_1[1] == "X" and row_2[1] == "X" and row_3[1] == "X":
             print("Player 1 Won")
+        profile = [profile[0], int(profile[1]) + 1]
             game = False
         elif row_1[2] == "X" and row_2[2] == "X" and row_3[2] == "X":
             print("Player 1 Won")
+        profile = [profile[0], int(profile[1]) + 1]
             game = False
         elif row_1[0] == "X" and row_2[1] == "X" and row_3[2] == "X":
             print("Player 1 Won")
+        profile = [profile[0], int(profile[1]) + 1]
             game = False
         elif row_1[2] == "X" and row_2[1] == "X" and row_3[0] == "X":
             print("Player 1 Won")
+        profile = [profile[0], int(profile[1]) + 1]
             game = False
         elif row_1[0] == "O" and row_1[1] == "O" and row_1[2] == "O":
             print("Player 2 Won")
+        profile_2 = [profile_2[0], int(profile_2[1]) + 1]
             game = False
         elif row_2[0] == "O" and row_2[1] == "O" and row_2[2] == "O":
             print("Player 2 Won")
+        profile_2 = [profile_2[0], int(profile_2[1]) + 1]
             game = False
         elif row_3[0] == "O" and row_3[1] == "O" and row_3[2] == "O":
             print("Player 2 Won")
+        profile_2 = [profile_2[0], int(profile_2[1]) + 1]
             game = False
         elif row_1[0] == "O" and row_2[0] == "O" and row_3[0] == "O":
             print("Player 2 Won")
+        profile_2 = [profile_2[0], int(profile_2[1]) + 1]
             game = False
         elif row_1[1] == "O" and row_2[1] == "O" and row_3[1] == "O":
             print("Player 2 Won")
+        profile_2 = [profile_2[0], int(profile_2[1]) + 1]
             game = False
         elif row_1[2] == "O" and row_2[2] == "O" and row_3[2] == "O":
             print("Player 2 Won")
+        profile_2 = [profile_2[0], int(profile_2[1]) + 1]
             game = False
         elif row_1[0] == "X" and row_2[1] == "X" and row_3[2] == "X":
             print("Player 2 Won")
+        profile_2 = [profile_2[0], int(profile_2[1]) + 1]
             game = False
         elif row_1[2] == "X" and row_2[1] == "X" and row_3[0] == "X":
             print("Player 2 Won")
+        profile_2 = [profile_2[0], int(profile_2[1]) + 1]
             game = False
         else:
             try:

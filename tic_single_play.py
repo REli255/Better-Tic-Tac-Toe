@@ -127,7 +127,7 @@ def tic_single_play(profile):
         mouse_x, mouse_y = get_mouse_pos()#Get User's Choice On The Board
         mouse_x, mouse_y = check_space(mouse_x, mouse_y, choices)
         board, choices = draw_x(mouse_x, mouse_y, screen, board, choices)
-        game, profile = check_win_single(board[0], board[1], board[2], choices)
+        game, profile = check_win_single(board[0], board[1], board[2], choices, profile)
         
         if game == False:
             time.sleep(0.5)
@@ -137,12 +137,12 @@ def tic_single_play(profile):
         print("Bot Placed Mark")
         mouse_x, mouse_y = bot_choice(choices)
         board, choices = draw_o(mouse_x, mouse_y, screen, board, choices)
-        game, profile = check_win_single(board[0], board[1], board[2], choices)
+        game, profile = check_win_single(board[0], board[1], board[2], choices, profile)
 
         time.sleep(0.5)
         return game, profile
 
     while game == True:
-        game, profile = game_run(board, choices)
+        game, profile = game_run(board, choices, profile)
 
     return profile

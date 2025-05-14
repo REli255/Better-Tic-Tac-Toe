@@ -19,9 +19,9 @@ def main():
     Enter the number of the thing you would like to do: """)
     if choice == "1":
         players = input("do you want to play 1. a two player game against a friend or 2. a one player game against a bot (enter the number next to the option you want): ")
-        if players == "1":
+        if players == "2":
             profile = tic_single_play(profile)
-        elif players == "2":
+        elif players == "1":
             profile_2 = profile_manager()
             profile = tic_two_play(profile, profile_2)
         else:

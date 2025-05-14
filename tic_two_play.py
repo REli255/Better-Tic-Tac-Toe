@@ -6,7 +6,7 @@ from grid import *
 from place_mark import *
 from check_space import *
 
-def tic_two_play(profile):
+def tic_two_play(profile, profile_2):
 
     def continue_play():
         print("""
@@ -25,7 +25,7 @@ def tic_two_play(profile):
     def set_board(choices = ["1", "2", "3", "4", "5", "6", "7", "8", "9"], board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]): return board, choices
 
 
-    def check_win(row_1, row_2, row_3, choices, profile):
+    def check_win(row_1, row_2, row_3, choices, profile, profile_2):
         game = True
         
         if row_1[0] == "X" and row_1[1] == "X" and row_1[2] == "X":
@@ -99,7 +99,7 @@ def tic_two_play(profile):
                 game = False
                 print("Its a Draw")
 
-        return game, profile
+        return game, profile, profile_2
 
 
     screen = set_grid()#Activate PyGame Window
@@ -108,12 +108,12 @@ def tic_two_play(profile):
 
     print(board[1][1])
     
-    def game_run(board, choices, profile):
+    def game_run(board, choices, profile, profile_2):
         print("Its Player 1's Turn")
         mouse_x, mouse_y = get_mouse_pos()#Get User's Choice On The Board
         mouse_x, mouse_y = check_space(mouse_x, mouse_y, choices)
         board, choices = draw_x(mouse_x, mouse_y, screen, board, choices)
-        game, profile = check_win(board[0], board[1], board[2], choices, profile)
+        game, profile, profile_2 = check_win(board[0], board[1], board[2], choices, profile, profile_2)
         
         if game == False:
             time.sleep(0.5)
@@ -124,12 +124,12 @@ def tic_two_play(profile):
         mouse_x, mouse_y = get_mouse_pos()
         mouse_x, mouse_y = check_space(mouse_x, mouse_y, choices)
         board, choices = draw_o(mouse_x, mouse_y, screen, board, choices)
-        game, profile = check_win(board[0], board[1], board[2], choices, profile)
+        game, profile, profile_2 = check_win(board[0], board[1], board[2], choices, profile, profile_2)
 
         time.sleep(0.5)
-        return game, profile
+        return game, profile, profile_2
 
     while game == True:
-        game = game_run(board, choices)
+        game = game_run(board, choices, profile, profile_2)
     
-    return profile
+    return profile, profile_2

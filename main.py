@@ -13,19 +13,31 @@ def main():
     if chosen == 0:
         profile = profile_manager()
     
-    choice = input("""1. Play Tic-Tac-Toe
+
+    print("""
+    Choices
+    1. Play Tic-Tac-Toe
     2. Change Profile
     3. End
-    Enter the number of the thing you would like to do: """)
+    """)
+    choice = input("Enter the number of the thing you would like to do: ")
+    
     if choice == "1":
-        players = input("do you want to play 1. a two player game against a friend or 2. a one player game against a bot (enter the number next to the option you want): ")
+        print("""
+        Tic-Tac-Toe Choices
+        1. Play Two Player(With a Friend)
+        2. One Player(Play Against a Bot)
+        """)
+        
+        players = input("Choose a Number: ")
+        
         if players == "2":
             profile = tic_single_play(profile)
         elif players == "1":
             profile_2 = profile_manager()
             profile = tic_two_play(profile, profile_2)
         else:
-            print("that is not an option")
+            print("That is not an option")
             return main()
         with open("highscores.csv", "a", newline="") as file:
             writer = csv.writer(file)

@@ -54,9 +54,10 @@ def profile_search():
             pass
     if found == 0:
         print("The username you entered did not match any of the profiles")
+        profile = profile_manager()
     else:
         print("Profile Found")
-        return item
+        return profile
 
 def profile_manager():
     print("""

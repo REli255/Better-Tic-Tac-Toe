@@ -9,7 +9,7 @@ from tic_two_play import tic_two_play
 chosen = 0
 
 # function with the main user interface
-def main():
+def main(profile):
     if chosen == 0:
         profile = profile_manager()
     
@@ -34,6 +34,7 @@ def main():
         if players == "2":
             profile = tic_single_play(profile)
         elif players == "1":
+            print("set a profile for the second player")
             profile_2 = profile_manager()
             profile = tic_two_play(profile, profile_2)
         else:
@@ -45,19 +46,23 @@ def main():
     elif choice == "2":
         profile = profile_manager()
     elif choice == "3":
-        return "end"
+        return "end", profile
     else:
         print("that is not an option")
         return main()
+    return "", profile
+
+profile = []
 
 # loop that makes sure the program continues until the user is done 
 while True:
-    end = main()
+    end, profile = main(profile)
     chosen = 56
     if end == "end":
         print("thank you for using this program")
         break
     else:
+        print("HIGHSCORES")
         highscore()
 
 

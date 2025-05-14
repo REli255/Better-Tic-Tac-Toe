@@ -31,9 +31,9 @@ def main():
         
         players = input("Choose a Number: ")
         
-        if players == "1":
+        if players == "2":
             profile = tic_single_play(profile)
-        elif players == "2":
+        elif players == "1":
             profile_2 = profile_manager()
             profile = tic_two_play(profile, profile_2)
         else:

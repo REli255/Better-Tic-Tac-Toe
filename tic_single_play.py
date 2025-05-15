@@ -147,5 +147,7 @@ def tic_single_play(profile):
 
     while game == True:
         game, profile = game_run(board, choices, profile)
+    time.sleep(0.5)
+    pygame.quit()
 
     return profile

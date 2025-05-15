@@ -8,19 +8,6 @@ from check_space import *
 
 def tic_two_play(profile, profile_2):
 
-    def continue_play():
-        print("""
-        Choices
-        1. Continue Play
-        2. Exit and Save Score
-        """)
-
-        choice = input("Choose a Number: ")
-
-        if choice == "1":
-            tic_two_play()
-        elif choice == "2":
-            pass
 
     def set_board():
         choices = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
@@ -134,5 +121,7 @@ def tic_two_play(profile, profile_2):
 
     while game == True:
         game, profile, profile_2 = game_run(board, choices, profile, profile_2)
+    time.sleep(0.5)
+    pygame.quit()
     
     return profile, profile_2

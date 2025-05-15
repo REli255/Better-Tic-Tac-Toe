@@ -1,7 +1,6 @@
 # Eli and Asher, Tic-Tac-Toe
 
 # statements to import functions
-from basic_tic_tac_toe import game
 from highscore_managment import *
 from tic_single_play import tic_single_play
 from tic_two_play import tic_two_play

@@ -1,6 +1,7 @@
 # Eli Robison
 
 import csv
+from bar_graph import display_wins
 
 def highscore():
     profiles = []
@@ -27,6 +28,8 @@ def highscore():
                     ties += 1
             for x in range(ties):
                 top += 1
+    
+    display_wins()
 
 def profile_maker():
     name = input("Enter the username you want: ")

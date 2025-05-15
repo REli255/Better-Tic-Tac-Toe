@@ -22,7 +22,10 @@ def tic_two_play(profile, profile_2):
         elif choice == "2":
             pass
 
-    def set_board(choices = ["1", "2", "3", "4", "5", "6", "7", "8", "9"], board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]): return board, choices
+    def set_board():
+        choices = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+        return board, choices
 
 
     def check_win(row_1, row_2, row_3, choices, profile, profile_2):
@@ -96,8 +99,8 @@ def tic_two_play(profile, profile_2):
             try:
                 random.choice(choices)
             except:
-                game = False
                 print("Its a Draw")
+                game = False
 
         return game, profile, profile_2
 
@@ -117,7 +120,7 @@ def tic_two_play(profile, profile_2):
         
         if game == False:
             time.sleep(0.5)
-            return game
+            return game, profile, profile_2
 
         time.sleep(0.1)
         print("Its Player 2's Turn")
@@ -130,6 +133,6 @@ def tic_two_play(profile, profile_2):
         return game, profile, profile_2
 
     while game == True:
-        game = game_run(board, choices, profile, profile_2)
+        game, profile, profile_2 = game_run(board, choices, profile, profile_2)
     
     return profile, profile_2

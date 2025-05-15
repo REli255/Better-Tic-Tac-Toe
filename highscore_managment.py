@@ -17,7 +17,7 @@ def highscore():
     ties = 0
     for score in scores:
         if ties > 1:
-            ties = 0
+            ties -= 1
             continue
         ties = 0
         if top < 5:
@@ -55,6 +55,7 @@ def profile_search():
     if found == 0:
         print("The username you entered did not match any of the profiles")
         profile = profile_manager()
+        return profile
     else:
         print("Profile Found")
         return profile

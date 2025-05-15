@@ -8,7 +8,10 @@ from check_space import *
 
 
 
-def set_board(choices = ["1", "2", "3", "4", "5", "6", "7", "8", "9"], board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]): return board, choices
+def set_board():
+    choices = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    return board, choices
 
 
 def bot_choice(choices):
@@ -131,7 +134,7 @@ def tic_single_play(profile):
         
         if game == False:
             time.sleep(0.5)
-            return game
+            return game, profile
 
         time.sleep(0.5)
         print("Bot Placed Mark")

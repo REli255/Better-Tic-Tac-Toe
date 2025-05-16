@@ -2,11 +2,11 @@
 
 ## Project Description
 ---
-Paragraph describing the purpose of your project and what it does.
+This program is a Tic-Tac-Toe game that uses pygame and records highscores of profiles and can play using two players and play using one player.
 
 ## Execution and Usage
 ---
-Paragraph describing how to use the project.
+Choose options that are shown and click in the PyGame window to play Tic-Tac-Toe.
 
 ## Used Technologies
 ---

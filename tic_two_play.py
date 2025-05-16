@@ -5,16 +5,9 @@ from get_mouse import *
 from grid import *
 from place_mark import *
 from check_space import *
+from tic_single_play import set_board
 
 def tic_two_play(profile, profile_2):
-
-
-    def set_board(): #sets the board where the users choices are gonna be stored to use because pygame is for visuals only
-        choices = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-        board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-        return board, choices
-
-
     def check_win(row_1, row_2, row_3, choices, profile, profile_2):#checks for win conditions and runs code based on it
         game = True
         
@@ -82,26 +75,29 @@ def tic_two_play(profile, profile_2):
             print("Player 2 Won")
             profile_2 = [profile_2[0], int(profile_2[1]) + 1]
             game = False
-        else:
-            try:#uses this to make sure the game ends after the board is full
-                random.choice(choices)
-            except:
-                print("Its a Draw")
+        else:#uses this to make sure the game ends after the board is full
+            end = 0
+            for x in range(len(choices)):
+                print(choices[str(x + 1)])
+                if choices[str(x + 1)]:
+                    end += 1
+            if end == 9:
                 game = False
+                print("Its a Draw")
 
         return game, profile, profile_2
 
 
     screen = set_grid()#Activate PyGame Window
-    board, choices = set_board()#makes the board that is going to be used to get win conditions
+    board, choices, slots = set_board()#makes the board that is going to be used to get win conditions
     game = True
 
     
-    def game_run(board, choices, profile, profile_2):
+    def game_run(board, choices, profile, profile_2, slots):
         print("Its Player 1's Turn")
         mouse_x, mouse_y = get_mouse_pos()#Get User's Choice On The Board
         mouse_x, mouse_y = check_space(mouse_x, mouse_y, choices)#makes sure their choice is valid
-        board, choices = draw_x(mouse_x, mouse_y, screen, board, choices)# draws the mark on the board
+        board, choices, slots = draw_x(mouse_x, mouse_y, screen, board, choices, slots)# draws the mark on the board
         game, profile, profile_2 = check_win(board[0], board[1], board[2], choices, profile, profile_2)#checks if anyone has won yet and ends the game if someone has
         
         if game == False:#stops the game if someone has won
@@ -110,16 +106,16 @@ def tic_two_play(profile, profile_2):
 
         time.sleep(0.1)
         print("Its Player 2's Turn")
-        mouse_x, mouse_y = get_mouse_pos()
+        mouse_x, mouse_y = get_mouse_pos()#Get User's Choice On The Board
         mouse_x, mouse_y = check_space(mouse_x, mouse_y, choices)
-        board, choices = draw_o(mouse_x, mouse_y, screen, board, choices)
+        board, choices, slots = draw_o(mouse_x, mouse_y, screen, board, choices, slots)
         game, profile, profile_2 = check_win(board[0], board[1], board[2], choices, profile, profile_2)
 
         time.sleep(0.5)
         return game, profile, profile_2
 
     while game == True:# keeps the game running if no one has one
-        game, profile, profile_2 = game_run(board, choices, profile, profile_2)
+        game, profile, profile_2 = game_run(board, choices, profile, profile_2, slots)
     time.sleep(0.5)
     pygame.quit()# closes the pygame window
     

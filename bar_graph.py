@@ -1,11 +1,10 @@
+# statement to import matplotlib
 import matplotlib.pyplot as plt
 
-def display_wins(people):
+# function to make a bar graph of the top five scores
+def display_wins(people, wins):
     fig, ax = plt.subplots()
 
-    people = ['Drake', 'MillyBobbyBrown', 'Billie Eilish', 'Diddy', 'Justin Beiber']
-    
-    wins = [40, 100, 30, 55, 10]
     bar_labels = people
     bar_colors = ['crimson', 'orangered', 'gold', 'olivedrab', 'hotpink']
 
@@ -17,11 +16,4 @@ def display_wins(people):
     ax.set_title('Highscores')
     ax.legend(title='People')
 
-    plt.show()
-
-display_wins()
-
-
-
-    
-    
+    plt.show() 

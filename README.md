@@ -2,7 +2,7 @@
 
 ## Project Description
 ---
-This program is a Tic-Tac-Toe game that uses pygame and records highscores of profiles and can play using two players and play using one player.
+This program is a Tic-Tac-Toe game that uses pygame and records highscores of profiles and can play using two players or using one player and a bot.
 
 ## Execution and Usage
 ---

@@ -5,15 +5,9 @@ from get_mouse import *
 from grid import *
 from place_mark import *
 from check_space import *
+from tic_single_play import set_board
 
 def tic_two_play(profile, profile_2):
-
-
-    def set_board():
-        choices = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-        board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-        return board, choices
-
 
     def check_win(row_1, row_2, row_3, choices, profile, profile_2):
         game = True
@@ -83,26 +77,29 @@ def tic_two_play(profile, profile_2):
             profile_2 = [profile_2[0], int(profile_2[1]) + 1]
             game = False
         else:
-            try:
-                random.choice(choices)
-            except:
-                print("Its a Draw")
+            end = 0
+            for x in range(len(choices)):
+                print(choices[str(x + 1)])
+                if choices[str(x + 1)]:
+                    end += 1
+            if end == 9:
                 game = False
+                print("Its a Draw")
 
         return game, profile, profile_2
 
 
     screen = set_grid()#Activate PyGame Window
-    board, choices = set_board()
+    board, choices, slots = set_board()
     game = True
 
     print(board[1][1])
     
-    def game_run(board, choices, profile, profile_2):
+    def game_run(board, choices, profile, profile_2, slots):
         print("Its Player 1's Turn")
         mouse_x, mouse_y = get_mouse_pos()#Get User's Choice On The Board
         mouse_x, mouse_y = check_space(mouse_x, mouse_y, choices)
-        board, choices = draw_x(mouse_x, mouse_y, screen, board, choices)
+        board, choices, slots = draw_x(mouse_x, mouse_y, screen, board, choices, slots)
         game, profile, profile_2 = check_win(board[0], board[1], board[2], choices, profile, profile_2)
         
         if game == False:
@@ -111,16 +108,16 @@ def tic_two_play(profile, profile_2):
 
         time.sleep(0.1)
         print("Its Player 2's Turn")
-        mouse_x, mouse_y = get_mouse_pos()
+        mouse_x, mouse_y = get_mouse_pos()#Get User's Choice On The Board
         mouse_x, mouse_y = check_space(mouse_x, mouse_y, choices)
-        board, choices = draw_o(mouse_x, mouse_y, screen, board, choices)
+        board, choices, slots = draw_o(mouse_x, mouse_y, screen, board, choices, slots)
         game, profile, profile_2 = check_win(board[0], board[1], board[2], choices, profile, profile_2)
 
         time.sleep(0.5)
         return game, profile, profile_2
 
     while game == True:
-        game, profile, profile_2 = game_run(board, choices, profile, profile_2)
+        game, profile, profile_2 = game_run(board, choices, profile, profile_2, slots)
     time.sleep(0.5)
     pygame.quit()
     

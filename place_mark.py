@@ -2,7 +2,7 @@ import pygame
 
 
     
-def draw_x(mouse_x,mouse_y,screen,board,choices):
+def draw_x(mouse_x,mouse_y,screen,board,choices):# draws an X in 1 of the 9 squares based on the x and y cordinates of the user's click
     if mouse_x < 300 and mouse_y < 300:
         pygame.draw.line(screen, (0, 0, 0), (50, 50), (255,255), 30)
         pygame.draw.line(screen, (0, 0, 0), (255, 50), (50,255), 30)
@@ -53,7 +53,7 @@ def draw_x(mouse_x,mouse_y,screen,board,choices):
    
 
 
-def draw_o(mouse_x,mouse_y,screen,board,choices):
+def draw_o(mouse_x,mouse_y,screen,board,choices):# draws an O in 1 of the 9 squares based on the x and y cordinates of the user's click
     if mouse_x < 300 and mouse_y < 300:
         pygame.draw.circle(screen, (0, 0, 0), (150, 150), 120, width=20, draw_top_right=1, draw_top_left=1, draw_bottom_left=1, draw_bottom_right=1)
         board[0][0] = "O"

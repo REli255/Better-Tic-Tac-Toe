@@ -6,7 +6,7 @@ This program is a Tic-Tac-Toe game that uses pygame and records highscores of pr
 
 ## Execution and Usage
 ---
-Choose options that are shown and click in the PyGame window to play Tic-Tac-Toe.
+Install all the libraries included in this project and execute it, choose options that are shown and click in the PyGame window to play Tic-Tac-Toe.
 
 ## Used Technologies
 ---
@@ -29,6 +29,10 @@ Choose options that are shown and click in the PyGame window to play Tic-Tac-Toe
 + Myke - tested
 + Angellisa - tested
 + Shayna - tested
++ Eli - Highscore Management, Tic-Tac-Toe
++ Asher - Visuals Using Pygame, Bar Graph for Win Rates, Tic-Tac-Toe
++ Official matplotlib documentation
++ Official PyGame documentation
 ## Author's Information
 ---
 I am Eli Robison. I have taken one coding class and am at the end of another. I made this program for that class.

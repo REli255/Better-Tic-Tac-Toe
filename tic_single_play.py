@@ -6,16 +6,13 @@ from grid import *
 from place_mark import *
 from check_space import *
 
-
-
-def set_board():
+def set_board(): #sets the board where the users choices are gonna be stored to use because pygame is for visuals only
     slots = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     choices = {"1": False, "2": False, "3": False, "4": False, "5": False, "6": False, "7": False, "8": False, "9": False}
     board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     return board, choices, slots
 
-
-def bot_choice(choices,slots):
+def bot_choice(choices,slots):#returns a random x and y cordinate using the available choices
     slot = random.choice(slots)
 
     if slot == 1:
@@ -50,7 +47,7 @@ def bot_choice(choices,slots):
     
 
 
-def check_win_single(row_1, row_2, row_3, choices, profile):
+def check_win_single(row_1, row_2, row_3, choices, profile):#checks for win conditions and runs code based on it
     game = True
     
     if row_1[0] == "X" and row_1[1] == "X" and row_1[2] == "X":
@@ -109,7 +106,7 @@ def check_win_single(row_1, row_2, row_3, choices, profile):
     elif row_1[2] == "X" and row_2[1] == "X" and row_3[0] == "X":
         print("The Bot Won")
         game = False
-    else:
+    else:#uses this to make sure the game ends after the board is full
         end = 0
         for x in range(len(choices)):
             print(choices[str(x + 1)])
@@ -122,22 +119,20 @@ def check_win_single(row_1, row_2, row_3, choices, profile):
     return game, profile
 
 
-def tic_single_play(profile):
+def tic_single_play(profile):# starts the tic-tac-toe game using the alredy made functions
     screen = set_grid()#Activate PyGame Window
-    board, choices, slots = set_board()
+    board, choices, slots = set_board()#makes the board that is going to be used to get win conditions
     game = True
-
-    print(board[1][1])
     
     def game_run(board, choices, profile, slots):
         print("Its Your Turn")
         mouse_x, mouse_y = get_mouse_pos()#Get User's Choice On The Board
-        mouse_x, mouse_y = check_space(mouse_x, mouse_y, choices)
-        board, choices, slots = draw_x(mouse_x, mouse_y, screen, board, choices, slots)
-        game, profile = check_win_single(board[0], board[1], board[2], choices, profile)
+        mouse_x, mouse_y = check_space(mouse_x, mouse_y, choices)#makes sure their choice is valid
+        board, choices, slots = draw_x(mouse_x, mouse_y, screen, board, choices, slots)# draws the mark on the board
+        game, profile = check_win_single(board[0], board[1], board[2], choices, profile)#checks if anyone has won yet and ends the game if someone has
         
-        if game == False:
-            time.sleep(0.5)
+        if game == False:#stops the game if someone has won
+            time.sleep(0.5)#a delay
             return game, profile
 
         time.sleep(0.5)
@@ -149,9 +144,9 @@ def tic_single_play(profile):
         time.sleep(0.5)
         return game, profile
 
-    while game == True:
+    while game == True:# keeps the game running if no one has one
         game, profile = game_run(board, choices, profile, slots)
     time.sleep(0.5)
-    pygame.quit()
+    pygame.quit()# closes the pygame window
 
     return profile

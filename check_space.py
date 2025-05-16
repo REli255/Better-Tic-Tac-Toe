@@ -1,7 +1,7 @@
 
 from get_mouse import get_mouse_pos
 
-def check_space(mouse_x, mouse_y, choices):
+def check_space(mouse_x, mouse_y, choices):#checks the space the user chose and if it is taken the user needs to choose a different one 
     if mouse_x < 300 and mouse_y < 300:
         if choices["1"]:
             print("Already Taken. Try Again!")

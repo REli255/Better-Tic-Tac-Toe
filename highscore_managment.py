@@ -10,12 +10,14 @@ def highscore():
     with open("highscores.csv", "r") as file:
         reader = csv.reader(file)
         for row in reader:
-            profiles.append([row[0], row[1]])
-            scores.append(row[1])
+            profiles.append([row[0], float(row[1])])
+            scores.append(float(row[1]))
     scores.sort(reverse=True)
 
     top = 0
     ties = 0
+    people = []
+    wins = []
     for score in scores:
         if ties > 1:
             ties -= 1
@@ -24,12 +26,14 @@ def highscore():
         if top < 5:
             for user in profiles:
                 if user[1] == score:
-                    print(top + 1, ":", user[0], "won", user[1], "times")
+                    print(top + 1, ":", user[0], "won", int(user[1]), "times")
+                    people.append(user[0])
+                    wins.append(score)
                     ties += 1
             for x in range(ties):
                 top += 1
     
-    display_wins()
+    display_wins(people, wins)
 
 def profile_maker():
     name = input("Enter the username you want: ")

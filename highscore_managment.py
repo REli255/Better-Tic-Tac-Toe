@@ -1,8 +1,10 @@
 # Eli Robison
 
+# statements to import functions and let csv files work
 import csv
 from bar_graph import display_wins
 
+# function to find and then display the top five scores
 def highscore():
     profiles = []
     scores = []
@@ -35,6 +37,7 @@ def highscore():
     
     display_wins(people, wins)
 
+# function to make a new profile for the user
 def profile_maker():
     name = input("Enter the username you want: ")
     profile = [name, 0]
@@ -43,6 +46,7 @@ def profile_maker():
         writer.writerow(profile)
     return profile
 
+# function to find the users old profile
 def profile_search():
     profiles = []
 
@@ -67,6 +71,7 @@ def profile_search():
         print("Profile Found")
         return profile
 
+# function to let the user choose if they want to use a new profile or an old one
 def profile_manager():
     print("""
     Profile Choices

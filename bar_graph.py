@@ -1,5 +1,7 @@
+# statement to import matplotlib
 import matplotlib.pyplot as plt
 
+# function to make a bar graph of the top five scores
 def display_wins(people, wins):
     fig, ax = plt.subplots()
 

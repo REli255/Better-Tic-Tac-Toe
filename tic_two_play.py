@@ -78,7 +78,6 @@ def tic_two_play(profile, profile_2):
         else:#uses this to make sure the game ends after the board is full
             end = 0
             for x in range(len(choices)):
-                print(choices[str(x + 1)])
                 if choices[str(x + 1)]:
                     end += 1
             if end == 9:
